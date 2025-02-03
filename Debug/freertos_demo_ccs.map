@@ -1,0 +1,1119 @@
+******************************************************************************
+                  TI ARM Linker PC v5.2.9                      
+******************************************************************************
+>> Linked Sun Feb 02 22:07:17 2025
+
+OUTPUT FILE NAME:   <freertos_demo.out>
+ENTRY POINT SYMBOL: "_c_int00"  address: 00003735
+
+
+MEMORY CONFIGURATION
+
+         name            origin    length      used     unused   attr    fill
+----------------------  --------  ---------  --------  --------  ----  --------
+  FLASH                 00000000   00040000  0000473e  0003b8c2  R  X
+  SRAM                  20000000   00008000  000046b0  00003950  RW X
+
+
+SEGMENT ALLOCATION MAP
+
+run origin  load origin   length   init length attrs members
+----------  ----------- ---------- ----------- ----- -------
+00000000    00000000    00004740   00004740    r-x
+  00000000    00000000    0000026c   0000026c    r-- .intvecs
+  0000026c    0000026c    00003faa   00003faa    r-x .text
+  00004218    00004218    00000480   00000480    r-- .const
+  00004698    00004698    000000a8   000000a8    r-- .cinit
+20000000    20000000    000046b0   00000000    rw-
+  20000000    20000000    00003e50   00000000    rw- .bss
+  20003e50    20003e50    00000400   00000000    rw- .sysmem
+  20004250    20004250    00000260   00000000    rw- .data
+  200044b0    200044b0    00000200   00000000    rw- .stack
+
+
+SECTION ALLOCATION MAP
+
+ output                                  attributes/
+section   page    origin      length       input sections
+--------  ----  ----------  ----------   ----------------
+.intvecs   0    00000000    0000026c     
+                  00000000    0000026c     startup_ccs.obj (.intvecs)
+
+.text      0    0000026c    00003faa     
+                  0000026c    000009d6     control_task.obj (.text:ControlTask)
+                  00000c42    00000002     startup_ccs.obj (.text:FaultISR)
+                  00000c44    000003dc     rtsv7M4_T_le_v4SPD16_eabi.lib : memory.obj (.text)
+                  00001020    0000030c                                   : lowlev.obj (.text)
+                  0000132c    000002d4                                   : trgdrv.obj (.text)
+                  00001600    000001ea     uartstdio.obj (.text:UARTvprintf)
+                  000017ea    00000002     startup_ccs.obj (.text:IntDefaultHandler)
+                  000017ec    000001c4     rtsv7M4_T_le_v4SPD16_eabi.lib : fopen.obj (.text)
+                  000019b0    00000134                                   : fputs.obj (.text)
+                  00001ae4    0000012c                                   : string.obj (.text)
+                  00001c10    00000105     control_task.obj (.text:printHeader)
+                  00001d15    00000001     --HOLE-- [fill = 0]
+                  00001d16    00000002     startup_ccs.obj (.text:NmiSR)
+                  00001d18    00000104     tasks.obj (.text:xTaskGenericCreate)
+                  00001e1c    00000104     tasks.obj (.text:xTaskIncrementTick)
+                  00001f20    00000100     rgb.obj (.text:RGBInit)
+                  00002020    000000f4     rtsv7M4_T_le_v4SPD16_eabi.lib : dtor_list.obj (.text)
+                  00002114    000000e8     demo.obj (.text:_ZNSs5_GrowEjb)
+                  000021fc    000000e8     queue.obj (.text:xQueueGenericSend)
+                  000022e4    000000e4     tasks.obj (.text:xTaskResumeAll)
+                  000023c8    000000dc     rtsv7M4_T_le_v4SPD16_eabi.lib : setvbuf.obj (.text)
+                  000024a4    000000d2     portasm.obj (.text)
+                  00002576    00000002     rtsv7M4_T_le_v4SPD16_eabi.lib : string.obj (.text:_ZNKSt9exception8_DoraiseEv)
+                  00002578    000000c8                                   : fflush.obj (.text)
+                  00002640    000000c0     rgb.obj (.text:RGBEnable)
+                  00002700    000000c0     heap_4.obj (.text:pvPortMalloc)
+                  000027c0    000000bc     demo.obj (.text:demo_get_message)
+                  0000287c    000000bc     rtsv7M4_T_le_v4SPD16_eabi.lib : typeinfo_.obj (.text)
+                  00002938    000000ac                                   : _io_perm.obj (.text)
+                  000029e4    0000009c                                   : memcpy_t2.obj (.text)
+                  00002a80    00000098                                   : fclose.obj (.text)
+                  00002b18    00000090     rgb.obj (.text:RGBColorSet)
+                  00002ba8    0000008c     tasks.obj (.text:vTaskSwitchContext)
+                  00002c34    00000081     rooms.obj (.text:_ZNK4Room8describeEv)
+                  00002cb5    00000001     --HOLE-- [fill = 0]
+                  00002cb6    00000002     rtsv7M4_T_le_v4SPD16_eabi.lib : string.obj (.text:_ZNSt9exceptionD1Ev)
+                  00002cb8    0000007c     tasks.obj (.text:xTaskPriorityDisinherit)
+                  00002d34    0000007a     demo.obj (.text:_ZNSs6assignERKSsjj)
+                  00002dae    0000007a     rtsv7M4_T_le_v4SPD16_eabi.lib : memset_t2.obj (.text)
+                  00002e28    00000078     rooms.obj (.text:_ZN4RoomC1Ei)
+                  00002ea0    00000078     rtsv7M4_T_le_v4SPD16_eabi.lib : string.obj (.text:_ZNSsC1EPKc)
+                  00002f18    00000074     tasks.obj (.text:xTaskRemoveFromEventList)
+                  00002f8c    00000072     queue.obj (.text:prvCopyDataToQueue)
+                  00002ffe    00000002     demo.obj (.text:demo_init)
+                  00003000    00000070     control_task.obj (.text:ControlTaskInit)
+                  00003070    00000070     heap_4.obj (.text:prvHeapInit)
+                  000030e0    0000006c     rtsv7M4_T_le_v4SPD16_eabi.lib : autoinit.obj (.text)
+                  0000314c    0000006a                                   : copy_decompress_rle.obj (.text)
+                  000031b6    00000002                                   : i_div0.obj (.text)
+                  000031b8    00000068                                   : trgmsg.obj (.text)
+                  00003220    00000064     main.obj (.text:ConfigureUART)
+                  00003284    00000064     rtsv7M4_T_le_v4SPD16_eabi.lib : fseek.obj (.text)
+                  000032e8    00000064     tasks.obj (.text:vTaskPlaceOnEventList)
+                  0000334c    00000062     queue.obj (.text:prvUnlockQueue)
+                  000033ae    00000002     rtsv7M4_T_le_v4SPD16_eabi.lib : newhandler.obj (.text)
+                  000033b0    00000060     uartstdio.obj (.text:UARTStdioConfig)
+                  00003410    00000060     tasks.obj (.text:prvInitialiseTaskLists)
+                  00003470    00000060     rtsv7M4_T_le_v4SPD16_eabi.lib : throw.obj (.text)
+                  000034d0    00000060     tasks.obj (.text:vTaskStartScheduler)
+                  00003530    0000005c     tasks.obj (.text:vTaskDelay)
+                  0000358c    00000058     demo.obj (.text:_ZNSs5eraseEjj)
+                  000035e4    00000058     tasks.obj (.text:prvCheckTasksWaitingTermination)
+                  0000363c    00000054     tasks.obj (.text:prvInitialiseTCBVariables)
+                  00003690    00000054     tasks.obj (.text:xTaskCheckForTimeOut)
+                  000036e4    00000050     heap_4.obj (.text:prvInsertBlockIntoFreeList)
+                  00003734    00000050     rtsv7M4_T_le_v4SPD16_eabi.lib : boot.obj (.text)
+                  00003784    0000004c                                   : string.obj (.text:_ZNSt12out_of_rangeC1ERKSs)
+                  000037d0    0000004c     main.obj (.text:main)
+                  0000381c    0000004c     tasks.obj (.text:prvAddCurrentTaskToDelayedList)
+                  00003868    0000004c     rtsv7M4_T_le_v4SPD16_eabi.lib : cpy_tbl.obj (.text)
+                  000038b4    0000004c     queue.obj (.text:xQueueCreateMutex)
+                  00003900    00000048     uartstdio.obj (.text:UARTwrite)
+                  00003948    00000044     rtsv7M4_T_le_v4SPD16_eabi.lib : string.obj (.text:_ZNSt11logic_errorC2ERKSs)
+                  0000398c    00000044                                   : exit.obj (.text)
+                  000039d0    00000040                                   : u_divt2.obj (.text)
+                  00003a10    00000040     port.obj (.text:xPortStartScheduler)
+                  00003a50    0000003c     heap_4.obj (.text:vPortFree)
+                  00003a8c    0000003b     rooms.obj (.text:_ZNK7BedRoom8describeEv)
+                  00003ac7    00000001     --HOLE-- [fill = 0]
+                  00003ac8    0000003a     rooms.obj (.text:_ZNK10LivingRoom8describeEv)
+                  00003b02    0000003a     tasks.obj (.text:prvAllocateTCBAndStack)
+                  00003b3c    00000038     list.obj (.text:vListInsert)
+                  00003b74    00000030     rtsv7M4_T_le_v4SPD16_eabi.lib : new_.obj (.text)
+                  00003ba4    00000030                                   : strncpy.obj (.text)
+                  00003bd4    0000002c     port.obj (.text:xPortSysTickHandler)
+                  00003c00    00000028     rtsv7M4_T_le_v4SPD16_eabi.lib : string.obj (.text:_ZNKSt9exception6_RaiseEv)
+                  00003c28    00000028                                   : string.obj (.text:_ZNSt11logic_errorD0Ev)
+                  00003c50    00000028                                   : string.obj (.text:_ZNSt12length_errorD0Ev)
+                  00003c78    00000028                                   : string.obj (.text:_ZNSt12out_of_rangeD0Ev)
+                  00003ca0    00000028     tasks.obj (.text:prvResetNextTaskUnblockTime)
+                  00003cc8    00000028     port.obj (.text:pxPortInitialiseStack)
+                  00003cf0    00000026     rooms.obj (.text:_ZN4RoomD1Ev)
+                  00003d16    00000024     rtsv7M4_T_le_v4SPD16_eabi.lib : memmov.obj (.text)
+                  00003d3a    00000022                                   : string.obj (.text:_ZNSt11logic_errorD1Ev)
+                  00003d5c    00000022                                   : string.obj (.text:_ZNSt12length_errorD1Ev)
+                  00003d7e    00000022                                   : string.obj (.text:_ZNSt12out_of_rangeD1Ev)
+                  00003da0    00000020                                   : guard.obj (.text)
+                  00003dc0    00000020                                   : memchr.obj (.text)
+                  00003de0    00000020     list.obj (.text:uxListRemove)
+                  00003e00    0000001e     demo.obj (.text:_ZNSsD1Ev)
+                  00003e1e    0000001c     queue.obj (.text:prvIsQueueFull)
+                  00003e3a    00000002     main.obj (.text:vApplicationStackOverflowHook)
+                  00003e3c    0000001c     port.obj (.text:vPortEnterCritical)
+                  00003e58    0000001a     uartstdio.obj (.text:UARTprintf)
+                  00003e72    00000018     wrapper.obj (.text:createBedRoom)
+                  00003e8a    00000018     wrapper.obj (.text:createLivingRoom)
+                  00003ea2    00000002     --HOLE-- [fill = 0]
+                  00003ea4    00000018     rtsv7M4_T_le_v4SPD16_eabi.lib : args_main.obj (.text)
+                  00003ebc    00000018                                   : strcmp.obj (.text)
+                  00003ed4    00000018     list.obj (.text:vListInsertEnd)
+                  00003eec    00000018     port.obj (.text:vPortExitCritical)
+                  00003f04    00000018     tasks.obj (.text:vTaskSetTimeOutState)
+                  00003f1c    00000016     rtsv7M4_T_le_v4SPD16_eabi.lib : strchr.obj (.text)
+                  00003f32    00000016     list.obj (.text:vListInitialise)
+                  00003f48    00000014     rgb.obj (.text:RGBIntensitySet)
+                  00003f5c    00000014     devices.obj (.text:_ZN2ACC1Ei)
+                  00003f70    00000014     devices.obj (.text:_ZN5LightC1Ei)
+                  00003f84    00000014     devices.obj (.text:_ZN6HeaterC1Ei)
+                  00003f98    00000014     rtsv7M4_T_le_v4SPD16_eabi.lib : _lock.obj (.text)
+                  00003fac    00000014                                   : strcpy.obj (.text)
+                  00003fc0    00000014                                   : strlen.obj (.text)
+                  00003fd4    00000014     port.obj (.text:vPortSetupTimerInterrupt)
+                  00003fe8    00000012     demo.obj (.text:_ZNSs4_EosEj)
+                  00003ffa    00000012     tasks.obj (.text:prvDeleteTCB)
+                  0000400c    00000010     rooms.obj (.text:_ZN10LivingRoomC1Ei)
+                  0000401c    00000010     sensors.obj (.text:_ZN10TempSensorC1Ei)
+                  0000402c    00000010     sensors.obj (.text:_ZN14MotionDetectorC1Ei)
+                  0000403c    00000010     devices.obj (.text:_ZN6DeviceC1Ei)
+                  0000404c    00000010     sensors.obj (.text:_ZN6SensorC1Ei)
+                  0000405c    00000010     rooms.obj (.text:_ZN7BedRoomC1Ei)
+                  0000406c    00000010     port.obj (.text:prvTaskExitError)
+                  0000407c    00000010     tasks.obj (.text:vTaskSuspendAll)
+                  0000408c    0000000e     rooms.obj (.text:_ZN10LivingRoomD0Ev)
+                  0000409a    0000000e     rooms.obj (.text:_ZN4Room11turnOnLightEv)
+                  000040a8    0000000e     rooms.obj (.text:_ZN4Room12turnOffLightEv)
+                  000040b6    0000000e     rooms.obj (.text:_ZN4Room12turnOnHeaterEv)
+                  000040c4    0000000e     rooms.obj (.text:_ZN4Room13turnOffHeaterEv)
+                  000040d2    0000000e     rooms.obj (.text:_ZN4Room8turnOnACEv)
+                  000040e0    0000000e     rooms.obj (.text:_ZN4Room9turnOffACEv)
+                  000040ee    0000000e     rooms.obj (.text:_ZN4RoomD0Ev)
+                  000040fc    0000000e     rooms.obj (.text:_ZN7BedRoomD0Ev)
+                  0000410a    0000000e     rtsv7M4_T_le_v4SPD16_eabi.lib : string.obj (.text:_ZNKSt11logic_error4whatEv)
+                  00004118    0000000e                                   : copy_decompress_none.obj (.text:decompress:none)
+                  00004126    0000000c                                   : string.obj (.text:_ZNSs6_MyptrEv)
+                  00004132    0000000c                                   : copy_zero_init.obj (.text:decompress:ZI)
+                  0000413e    0000000c     wrapper.obj (.text:describeRoom)
+                  0000414a    0000000c     wrapper.obj (.text:getMotionDetectorValue)
+                  00004156    0000000c     wrapper.obj (.text:getTempSensorValue)
+                  00004162    00000002     --HOLE-- [fill = 0]
+                  00004164    0000000c     tasks.obj (.text:vTaskMissedYield)
+                  00004170    0000000a     wrapper.obj (.text:setMotionDetectorValue)
+                  0000417a    00000008     rtsv7M4_T_le_v4SPD16_eabi.lib : string.obj (.text:_ZNSt9exceptionD0Ev)
+                  00004182    00000008     tasks.obj (.text:prvIdleTask)
+                  0000418a    00000008     rtsv7M4_T_le_v4SPD16_eabi.lib : delete.obj (.text)
+                  00004192    00000006     startup_ccs.obj (.text:ResetISR)
+                  00004198    00000006     driverlib.lib : uart.obj (.text:UARTClockSourceSet)
+                  0000419e    00000006     devices.obj (.text:_ZN6Device6turnOnEv)
+                  000041a4    00000006     devices.obj (.text:_ZN6Device7turnOffEv)
+                  000041aa    00000006     rtsv7M4_T_le_v4SPD16_eabi.lib : copy_decompress_rle.obj (.text:decompress:rle24)
+                  000041b0    00000006     wrapper.obj (.text:isACOn)
+                  000041b6    00000006     wrapper.obj (.text:isHeaterOn)
+                  000041bc    00000006     wrapper.obj (.text:isLightOn)
+                  000041c2    00000006     wrapper.obj (.text:setTempSensorValue)
+                  000041c8    00000006     list.obj (.text:vListInitialiseItem)
+                  000041ce    00000004     rooms.obj (.text:_ZN10LivingRoomD1Ev)
+                  000041d2    00000004     sensors.obj (.text:_ZN10TempSensor9readValueEv)
+                  000041d6    00000004     sensors.obj (.text:_ZN14MotionDetector9readValueEv)
+                  000041da    00000004     sensors.obj (.text:_ZN6Sensor8setValueEh)
+                  000041de    00000004     sensors.obj (.text:_ZN6Sensor9readValueEv)
+                  000041e2    00000004     rooms.obj (.text:_ZN7BedRoomD1Ev)
+                  000041e6    00000004     devices.obj (.text:_ZNK6Device8getStateEv)
+                  000041ea    00000004     rtsv7M4_T_le_v4SPD16_eabi.lib : string.obj (.text:_ZNKSt11logic_error8_DoraiseEv)
+                  000041ee    00000004                                   : string.obj (.text:_ZNKSt12length_error8_DoraiseEv)
+                  000041f2    00000004                                   : string.obj (.text:_ZNKSt12out_of_range8_DoraiseEv)
+                  000041f6    00000004                                   : string.obj (.text:_ZNKSt9exception4whatEv)
+                  000041fa    00000004                                   : pre_init.obj (.text)
+                  000041fe    00000004     wrapper.obj (.text:turnOffAC)
+                  00004202    00000004     wrapper.obj (.text:turnOffHeater)
+                  00004206    00000004     wrapper.obj (.text:turnOffLight)
+                  0000420a    00000004     wrapper.obj (.text:turnOnAC)
+                  0000420e    00000004     wrapper.obj (.text:turnOnHeater)
+                  00004212    00000004     wrapper.obj (.text:turnOnLight)
+
+.const     0    00004218    00000480     
+                  00004218    0000009c     control_task.obj (.const:.string)
+                  000042b4    00000028     rtsv7M4_T_le_v4SPD16_eabi.lib : typeinfo_.obj (.const:.typeinfo:_ZTSN10__cxxabiv123__fundamental_type_infoE)
+                  000042dc    00000025                                   : typeinfo_.obj (.const:.typeinfo:_ZTSN10__cxxabiv120__si_class_type_infoE)
+                  00004301    00000024                                   : typeinfo_.obj (.const:.typeinfo:_ZTSN10__cxxabiv119__pointer_type_infoE)
+                  00004325    00000022                                   : typeinfo_.obj (.const:.typeinfo:_ZTSN10__cxxabiv117__class_type_infoE)
+                  00004347    00000022                                   : typeinfo_.obj (.const:.typeinfo:_ZTSN10__cxxabiv117__pbase_type_infoE)
+                  00004369    00000002                                   : typeinfo_.obj (.const:.typeinfo:_ZTSe)
+                  0000436b    00000001     --HOLE-- [fill = 0]
+                  0000436c    0000001c     uartstdio.obj (.const)
+                  00004388    00000018     rtsv7M4_T_le_v4SPD16_eabi.lib : string.obj (.const:_ZTVSt11logic_error)
+                  000043a0    00000018                                   : string.obj (.const:_ZTVSt12length_error)
+                  000043b8    00000018                                   : string.obj (.const:_ZTVSt12out_of_range)
+                  000043d0    00000018                                   : string.obj (.const:_ZTVSt9exception)
+                  000043e8    00000014     rooms.obj (.const:_ZTV10LivingRoom)
+                  000043fc    00000014     rooms.obj (.const:_ZTV4Room)
+                  00004410    00000014     rooms.obj (.const:_ZTV7BedRoom)
+                  00004424    00000012     uartstdio.obj (.const:.string)
+                  00004436    00000011     sensors.obj (.const:.typeinfo:_ZTS14MotionDetector)
+                  00004447    00000011     rtsv7M4_T_le_v4SPD16_eabi.lib : string.obj (.const:.typeinfo:_ZTSSt12length_error)
+                  00004458    00000011                                   : string.obj (.const:.typeinfo:_ZTSSt12out_of_range)
+                  00004469    00000010     demo.obj (.const:.string:_ZZN4Demo10getMessageEvEs)
+                  00004479    00000003     --HOLE-- [fill = 0]
+                  0000447c    00000010     rtsv7M4_T_le_v4SPD16_eabi.lib : typeinfo_.obj (.const:.typeinfo:_ZTIPKe)
+                  0000448c    00000010                                   : string.obj (.const:.typeinfo:_ZTSSt11logic_error)
+                  0000449c    00000010     devices.obj (.const:_ZTV2AC)
+                  000044ac    00000010     devices.obj (.const:_ZTV5Light)
+                  000044bc    00000010     devices.obj (.const:_ZTV6Device)
+                  000044cc    00000010     devices.obj (.const:_ZTV6Heater)
+                  000044dc    00000010     rtsv7M4_T_le_v4SPD16_eabi.lib : typeinfo_.obj (.const:_ZTVN10__cxxabiv117__class_type_infoE)
+                  000044ec    00000010                                   : typeinfo_.obj (.const:_ZTVN10__cxxabiv119__pointer_type_infoE)
+                  000044fc    00000010                                   : typeinfo_.obj (.const:_ZTVN10__cxxabiv120__si_class_type_infoE)
+                  0000450c    00000010                                   : typeinfo_.obj (.const:_ZTVN10__cxxabiv123__fundamental_type_infoE)
+                  0000451c    0000000d     rooms.obj (.const:.typeinfo:_ZTS10LivingRoom)
+                  00004529    0000000d     sensors.obj (.const:.typeinfo:_ZTS10TempSensor)
+                  00004536    0000000d     rtsv7M4_T_le_v4SPD16_eabi.lib : string.obj (.const:.typeinfo:_ZTSSt9exception)
+                  00004543    0000000d                                   : typeinfo_.obj (.const:.typeinfo:_ZTSSt9type_info)
+                  00004550    0000000c     rooms.obj (.const:.typeinfo:_ZTI10LivingRoom)
+                  0000455c    0000000c     sensors.obj (.const:.typeinfo:_ZTI10TempSensor)
+                  00004568    0000000c     sensors.obj (.const:.typeinfo:_ZTI14MotionDetector)
+                  00004574    0000000c     devices.obj (.const:.typeinfo:_ZTI2AC)
+                  00004580    0000000c     devices.obj (.const:.typeinfo:_ZTI5Light)
+                  0000458c    0000000c     devices.obj (.const:.typeinfo:_ZTI6Heater)
+                  00004598    0000000c     rooms.obj (.const:.typeinfo:_ZTI7BedRoom)
+                  000045a4    0000000c     rtsv7M4_T_le_v4SPD16_eabi.lib : typeinfo_.obj (.const:.typeinfo:_ZTIN10__cxxabiv117__class_type_infoE)
+                  000045b0    0000000c                                   : typeinfo_.obj (.const:.typeinfo:_ZTIN10__cxxabiv117__pbase_type_infoE)
+                  000045bc    0000000c                                   : typeinfo_.obj (.const:.typeinfo:_ZTIN10__cxxabiv119__pointer_type_infoE)
+                  000045c8    0000000c                                   : typeinfo_.obj (.const:.typeinfo:_ZTIN10__cxxabiv120__si_class_type_infoE)
+                  000045d4    0000000c                                   : typeinfo_.obj (.const:.typeinfo:_ZTIN10__cxxabiv123__fundamental_type_infoE)
+                  000045e0    0000000c                                   : string.obj (.const:.typeinfo:_ZTISt11logic_error)
+                  000045ec    0000000c                                   : string.obj (.const:.typeinfo:_ZTISt12length_error)
+                  000045f8    0000000c                                   : string.obj (.const:.typeinfo:_ZTISt12out_of_range)
+                  00004604    0000000c     sensors.obj (.const:_ZTV10TempSensor)
+                  00004610    0000000c     sensors.obj (.const:_ZTV14MotionDetector)
+                  0000461c    0000000c     sensors.obj (.const:_ZTV6Sensor)
+                  00004628    00000009     rooms.obj (.const:.typeinfo:_ZTS7BedRoom)
+                  00004631    00000003     --HOLE-- [fill = 0]
+                  00004634    00000008     rooms.obj (.const:.typeinfo:_ZTI4Room)
+                  0000463c    00000008     devices.obj (.const:.typeinfo:_ZTI6Device)
+                  00004644    00000008     sensors.obj (.const:.typeinfo:_ZTI6Sensor)
+                  0000464c    00000008     rtsv7M4_T_le_v4SPD16_eabi.lib : string.obj (.const:.typeinfo:_ZTISt9exception)
+                  00004654    00000008                                   : typeinfo_.obj (.const:.typeinfo:_ZTISt9type_info)
+                  0000465c    00000008                                   : typeinfo_.obj (.const:.typeinfo:_ZTIe)
+                  00004664    00000008     devices.obj (.const:.typeinfo:_ZTS6Device)
+                  0000466c    00000008     devices.obj (.const:.typeinfo:_ZTS6Heater)
+                  00004674    00000008     sensors.obj (.const:.typeinfo:_ZTS6Sensor)
+                  0000467c    00000007     devices.obj (.const:.typeinfo:_ZTS5Light)
+                  00004683    00000006     rooms.obj (.const:.typeinfo:_ZTS4Room)
+                  00004689    00000004     devices.obj (.const:.typeinfo:_ZTS2AC)
+                  0000468d    00000004     rtsv7M4_T_le_v4SPD16_eabi.lib : typeinfo_.obj (.const:.typeinfo:_ZTSPKe)
+                  00004691    00000003     --HOLE-- [fill = 0]
+                  00004694    00000004     port.obj (.const)
+
+.cinit     0    00004698    000000a8     
+                  00004698    00000082     (.cinit..data.load) [load image, compression = rle]
+                  0000471a    00000002     --HOLE-- [fill = 0]
+                  0000471c    0000000c     (__TI_handler_table)
+                  00004728    00000008     (.cinit..bss.load) [load image, compression = zero_init]
+                  00004730    00000010     (__TI_cinit_table)
+
+.init_array 
+*          0    00000000    00000000     UNINITIALIZED
+
+.bss       0    20000000    00003e50     UNINITIALIZED
+                  20000000    00003a98     heap_4.obj (.bss:ucHeap)
+                  20003a98    00000140     tasks.obj (.bss:pxReadyTasksLists)
+                  20003bd8    00000120     rtsv7M4_T_le_v4SPD16_eabi.lib : trgmsg.obj (.bss:__CIOBUF_)
+                  20003cf8    000000a0                                   : defs.obj (.bss:__TI_tmpnams)
+                  20003d98    0000001c     (.common:_ZZ16demo_get_messageE7message)
+                  20003db4    00000014     (.common:xDelayedTaskList1)
+                  20003dc8    00000014     (.common:xDelayedTaskList2)
+                  20003ddc    00000014     (.common:xPendingReadyList)
+                  20003df0    00000014     (.common:xSuspendedTaskList)
+                  20003e04    00000014     (.common:xTasksWaitingTermination)
+                  20003e18    0000000c     (.common:g_ui32Colors)
+                  20003e24    00000008     (.common:parmbuf)
+                  20003e2c    00000008     (.common:xStart)
+                  20003e34    00000004     (.common:$P$T9$1)
+                  20003e38    00000004     (.common:LogSemaphore)
+                  20003e3c    00000004     (.common:UARTSemaphore)
+                  20003e40    00000004     (.common:_ZSt16__dummy_typeinfo)
+                  20003e44    00000004     (.common:__dso_handle)
+                  20003e48    00000004     (.common:pxDelayedTaskList)
+                  20003e4c    00000004     (.common:pxOverflowDelayedTaskList)
+
+.TI.noinit 
+*          0    20000000    00000000     UNINITIALIZED
+
+.sysmem    0    20003e50    00000400     UNINITIALIZED
+                  20003e50    00000008     rtsv7M4_T_le_v4SPD16_eabi.lib : memory.obj (.sysmem)
+                  20003e58    000003f8     --HOLE--
+
+.data      0    20004250    00000260     UNINITIALIZED
+                  20004250    000000f0     rtsv7M4_T_le_v4SPD16_eabi.lib : defs.obj (.data:_ftable)
+                  20004340    000000d0                                   : lowlev.obj (.data)
+                  20004410    00000030     tasks.obj (.data)
+                  20004440    00000010     control_task.obj (.data)
+                  20004450    00000010     heap_4.obj (.data)
+                  20004460    00000010     rtsv7M4_T_le_v4SPD16_eabi.lib : defs.obj (.data)
+                  20004470    0000000c                                   : memory.obj (.data)
+                  2000447c    00000008                                   : _lock.obj (.data)
+                  20004484    00000008                                   : exit.obj (.data)
+                  2000448c    00000005     uartstdio.obj (.data)
+                  20004491    00000003     --HOLE--
+                  20004494    00000004     port.obj (.data)
+                  20004498    00000004     rgb.obj (.data)
+                  2000449c    00000004     rtsv7M4_T_le_v4SPD16_eabi.lib : dtor_list.obj (.data)
+                  200044a0    00000004                                   : fopen.obj (.data)
+                  200044a4    00000004                                   : raisehan.obj (.data)
+                  200044a8    00000004                                   : stkdepth_vars.obj (.data)
+                  200044ac    00000004                                   : vars.obj (.data)
+
+.TI.persistent 
+*          0    20004250    00000000     UNINITIALIZED
+
+.stack     0    200044b0    00000200     UNINITIALIZED
+                  200044b0    00000200     --HOLE--
+
+
+LINKER GENERATED COPY TABLES
+
+__TI_cinit_table @ 00004730 records: 2, size/record: 8, table size: 16
+	.data: load addr=00004698, load size=00000082 bytes, run addr=20004250, run size=00000260 bytes, compression=rle
+	.bss: load addr=00004728, load size=00000008 bytes, run addr=20000000, run size=00003e50 bytes, compression=zero_init
+
+
+LINKER GENERATED HANDLER TABLE
+
+__TI_handler_table @ 0000471c records: 3, size/record: 4, table size: 12
+	index: 0, handler: __TI_decompress_rle24
+	index: 1, handler: __TI_decompress_none
+	index: 2, handler: __TI_zero_init
+
+
+GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
+
+address   name                                              
+-------   ----                                              
+0000398d  C$$EXIT                                           
+000031e7  C$$IO$$                                           
+00003221  ConfigureUART                                     
+00003001  ControlTaskInit                                   
+000015b9  HOSTclock                                         
+00001581  HOSTclose                                         
+00001543  HOSTgetenv                                        
+000014e7  HOSTlseek                                         
+00001495  HOSTopen                                          
+00001449  HOSTread                                          
+000013eb  HOSTrename                                        
+000013b1  HOSTtime                                          
+00001379  HOSTunlink                                        
+0000132d  HOSTwrite                                         
+20003e38  LogSemaphore                                      
+00002b19  RGBColorSet                                       
+00002641  RGBEnable                                         
+00001f21  RGBInit                                           
+00003f49  RGBIntensitySet                                   
+00004193  ResetISR                                          
+UNDEFED   SHT$$INIT_ARRAY$$Base                             
+UNDEFED   SHT$$INIT_ARRAY$$Limit                            
+00004199  UARTClockSourceSet                                
+20003e3c  UARTSemaphore                                     
+000033b1  UARTStdioConfig                                   
+00003e59  UARTprintf                                        
+00001601  UARTvprintf                                       
+00003901  UARTwrite                                         
+000033af  _Z21__default_new_handlerv                        
+0000400d  _ZN10LivingRoomC1Ei                               
+0000400d  _ZN10LivingRoomC2Ei                               
+0000408d  _ZN10LivingRoomD0Ev                               
+000041cf  _ZN10LivingRoomD1Ev                               
+000041d3  _ZN10TempSensor9readValueEv                       
+0000401d  _ZN10TempSensorC1Ei                               
+0000401d  _ZN10TempSensorC2Ei                               
+00002929  _ZN10__cxxabiv116__enum_type_infoD0Ev             
+00002927  _ZN10__cxxabiv116__enum_type_infoD1Ev             
+00002927  _ZN10__cxxabiv116__enum_type_infoD2Ev             
+0000291f  _ZN10__cxxabiv117__array_type_infoD0Ev            
+0000291d  _ZN10__cxxabiv117__array_type_infoD1Ev            
+0000291d  _ZN10__cxxabiv117__array_type_infoD2Ev            
+00002915  _ZN10__cxxabiv117__class_type_infoD0Ev            
+00002913  _ZN10__cxxabiv117__class_type_infoD1Ev            
+00002913  _ZN10__cxxabiv117__class_type_infoD2Ev            
+0000290b  _ZN10__cxxabiv117__pbase_type_infoD0Ev            
+00002909  _ZN10__cxxabiv117__pbase_type_infoD1Ev            
+00002909  _ZN10__cxxabiv117__pbase_type_infoD2Ev            
+00002901  _ZN10__cxxabiv119__pointer_type_infoD0Ev          
+000028ff  _ZN10__cxxabiv119__pointer_type_infoD1Ev          
+000028ff  _ZN10__cxxabiv119__pointer_type_infoD2Ev          
+000028f7  _ZN10__cxxabiv120__function_type_infoD0Ev         
+000028f5  _ZN10__cxxabiv120__function_type_infoD1Ev         
+000028f5  _ZN10__cxxabiv120__function_type_infoD2Ev         
+000028ed  _ZN10__cxxabiv120__si_class_type_infoD0Ev         
+000028eb  _ZN10__cxxabiv120__si_class_type_infoD1Ev         
+000028eb  _ZN10__cxxabiv120__si_class_type_infoD2Ev         
+000028e3  _ZN10__cxxabiv121__vmi_class_type_infoD0Ev        
+000028e1  _ZN10__cxxabiv121__vmi_class_type_infoD1Ev        
+000028e1  _ZN10__cxxabiv121__vmi_class_type_infoD2Ev        
+000028d9  _ZN10__cxxabiv123__fundamental_type_infoD0Ev      
+000028d7  _ZN10__cxxabiv123__fundamental_type_infoD1Ev      
+000028d7  _ZN10__cxxabiv123__fundamental_type_infoD2Ev      
+000028cf  _ZN10__cxxabiv129__pointer_to_member_type_infoD0Ev
+000028cd  _ZN10__cxxabiv129__pointer_to_member_type_infoD1Ev
+000028cd  _ZN10__cxxabiv129__pointer_to_member_type_infoD2Ev
+000041d7  _ZN14MotionDetector9readValueEv                   
+0000402d  _ZN14MotionDetectorC1Ei                           
+0000402d  _ZN14MotionDetectorC2Ei                           
+00003f5d  _ZN2ACC1Ei                                        
+00003f5d  _ZN2ACC2Ei                                        
+0000409b  _ZN4Room11turnOnLightEv                           
+000040a9  _ZN4Room12turnOffLightEv                          
+000040b7  _ZN4Room12turnOnHeaterEv                          
+000040c5  _ZN4Room13turnOffHeaterEv                         
+000040d3  _ZN4Room8turnOnACEv                               
+000040e1  _ZN4Room9turnOffACEv                              
+00002e29  _ZN4RoomC1Ei                                      
+00002e29  _ZN4RoomC2Ei                                      
+000040ef  _ZN4RoomD0Ev                                      
+00003cf1  _ZN4RoomD1Ev                                      
+00003cf1  _ZN4RoomD2Ev                                      
+00003f71  _ZN5LightC1Ei                                     
+00003f71  _ZN5LightC2Ei                                     
+0000419f  _ZN6Device6turnOnEv                               
+000041a5  _ZN6Device7turnOffEv                              
+0000403d  _ZN6DeviceC1Ei                                    
+0000403d  _ZN6DeviceC2Ei                                    
+00003f85  _ZN6HeaterC1Ei                                    
+00003f85  _ZN6HeaterC2Ei                                    
+000041db  _ZN6Sensor8setValueEh                             
+000041df  _ZN6Sensor9readValueEv                            
+0000404d  _ZN6SensorC1Ei                                    
+0000404d  _ZN6SensorC2Ei                                    
+0000405d  _ZN7BedRoomC1Ei                                   
+0000405d  _ZN7BedRoomC2Ei                                   
+000040fd  _ZN7BedRoomD0Ev                                   
+000041e3  _ZN7BedRoomD1Ev                                   
+00003ac9  _ZNK10LivingRoom8describeEv                       
+00002c35  _ZNK4Room8describeEv                              
+000041e7  _ZNK6Device8getStateEv                            
+00003a8d  _ZNK7BedRoom8describeEv                           
+0000410b  _ZNKSt11logic_error4whatEv                        
+000041eb  _ZNKSt11logic_error8_DoraiseEv                    
+00001ae5  _ZNKSt12_String_base5_XlenEv                      
+00001b37  _ZNKSt12_String_base5_XranEv                      
+000041ef  _ZNKSt12length_error8_DoraiseEv                   
+000041f3  _ZNKSt12out_of_range8_DoraiseEv                   
+000041f7  _ZNKSt9exception4whatEv                           
+00003c01  _ZNKSt9exception6_RaiseEv                         
+00002577  _ZNKSt9exception8_DoraiseEv                       
+0000288f  _ZNKSt9type_info4nameEv                           
+000028bf  _ZNKSt9type_info6beforeERKS_                      
+000028a9  _ZNKSt9type_infoeqERKS_                           
+00002893  _ZNKSt9type_infoneERKS_                           
+00003fe9  _ZNSs4_EosEj                                      
+00002115  _ZNSs5_GrowEjb                                    
+0000358d  _ZNSs5eraseEjj                                    
+00004127  _ZNSs6_MyptrEv                                    
+00002d35  _ZNSs6assignERKSsjj                               
+00002ea1  _ZNSsC1EPKc                                       
+00003e01  _ZNSsD1Ev                                         
+00003949  _ZNSt11logic_errorC2ERKSs                         
+00003c29  _ZNSt11logic_errorD0Ev                            
+00003d3b  _ZNSt11logic_errorD1Ev                            
+00003c51  _ZNSt12length_errorD0Ev                           
+00003d5d  _ZNSt12length_errorD1Ev                           
+00003785  _ZNSt12out_of_rangeC1ERKSs                        
+00003c79  _ZNSt12out_of_rangeD0Ev                           
+00003d7f  _ZNSt12out_of_rangeD1Ev                           
+0000417b  _ZNSt9exceptionD0Ev                               
+00002cb7  _ZNSt9exceptionD1Ev                               
+00002887  _ZNSt9type_infoD0Ev                               
+00002885  _ZNSt9type_infoD1Ev                               
+00002885  _ZNSt9type_infoD2Ev                               
+00003471  _ZSt14_Debug_messagePKcS0_                        
+200044a4  _ZSt14_Raise_handler                              
+20003e40  _ZSt16__dummy_typeinfo                            
+0000287d  _ZSt21__gen_dummy_typeinfosv                      
+000034a1  _ZSt6_ThrowRKSt9exception                         
+00004550  _ZTI10LivingRoom                                  
+0000455c  _ZTI10TempSensor                                  
+00004568  _ZTI14MotionDetector                              
+00004574  _ZTI2AC                                           
+00004634  _ZTI4Room                                         
+00004580  _ZTI5Light                                        
+0000463c  _ZTI6Device                                       
+0000458c  _ZTI6Heater                                       
+00004644  _ZTI6Sensor                                       
+00004598  _ZTI7BedRoom                                      
+000045a4  _ZTIN10__cxxabiv117__class_type_infoE             
+000045b0  _ZTIN10__cxxabiv117__pbase_type_infoE             
+000045bc  _ZTIN10__cxxabiv119__pointer_type_infoE           
+000045c8  _ZTIN10__cxxabiv120__si_class_type_infoE          
+000045d4  _ZTIN10__cxxabiv123__fundamental_type_infoE       
+0000447c  _ZTIPKe                                           
+000045e0  _ZTISt11logic_error                               
+000045ec  _ZTISt12length_error                              
+000045f8  _ZTISt12out_of_range                              
+0000464c  _ZTISt9exception                                  
+00004654  _ZTISt9type_info                                  
+0000465c  _ZTIe                                             
+0000451c  _ZTS10LivingRoom                                  
+00004529  _ZTS10TempSensor                                  
+00004436  _ZTS14MotionDetector                              
+00004689  _ZTS2AC                                           
+00004683  _ZTS4Room                                         
+0000467c  _ZTS5Light                                        
+00004664  _ZTS6Device                                       
+0000466c  _ZTS6Heater                                       
+00004674  _ZTS6Sensor                                       
+00004628  _ZTS7BedRoom                                      
+00004325  _ZTSN10__cxxabiv117__class_type_infoE             
+00004347  _ZTSN10__cxxabiv117__pbase_type_infoE             
+00004301  _ZTSN10__cxxabiv119__pointer_type_infoE           
+000042dc  _ZTSN10__cxxabiv120__si_class_type_infoE          
+000042b4  _ZTSN10__cxxabiv123__fundamental_type_infoE       
+0000468d  _ZTSPKe                                           
+0000448c  _ZTSSt11logic_error                               
+00004447  _ZTSSt12length_error                              
+00004458  _ZTSSt12out_of_range                              
+00004536  _ZTSSt9exception                                  
+00004543  _ZTSSt9type_info                                  
+00004369  _ZTSe                                             
+000043e8  _ZTV10LivingRoom                                  
+00004604  _ZTV10TempSensor                                  
+00004610  _ZTV14MotionDetector                              
+0000449c  _ZTV2AC                                           
+000043fc  _ZTV4Room                                         
+000044ac  _ZTV5Light                                        
+000044bc  _ZTV6Device                                       
+000044cc  _ZTV6Heater                                       
+0000461c  _ZTV6Sensor                                       
+00004410  _ZTV7BedRoom                                      
+000044dc  _ZTVN10__cxxabiv117__class_type_infoE             
+000044ec  _ZTVN10__cxxabiv119__pointer_type_infoE           
+000044fc  _ZTVN10__cxxabiv120__si_class_type_infoE          
+0000450c  _ZTVN10__cxxabiv123__fundamental_type_infoE       
+00004388  _ZTVSt11logic_error                               
+000043a0  _ZTVSt12length_error                              
+000043b8  _ZTVSt12out_of_range                              
+000043d0  _ZTVSt9exception                                  
+00004469  _ZZN4Demo10getMessageEvEs                         
+0000418b  _ZdlPv                                            
+00003b75  _Znwj                                             
+20003bd8  __CIOBUF_                                         
+200046b0  __STACK_END                                       
+00000200  __STACK_SIZE                                      
+200046b0  __STACK_TOP                                       
+00000400  __SYSMEM_SIZE                                     
+00004730  __TI_CINIT_Base                                   
+00004740  __TI_CINIT_Limit                                  
+0000471c  __TI_Handler_Table_Base                           
+00004728  __TI_Handler_Table_Limit                          
+000030e1  __TI_auto_init                                    
+000018b5  __TI_cleanup                                      
+20004484  __TI_cleanup_ptr                                  
+00002a81  __TI_closefile                                    
+00004119  __TI_decompress_none                              
+000041ab  __TI_decompress_rle24                             
+00002579  __TI_doflush                                      
+20004488  __TI_dtors_ptr                                    
+20004460  __TI_ft_end                                       
+0000299b  __TI_rd_ok                                        
+000031eb  __TI_readmsg                                      
+00000000  __TI_static_base__                                
+20003cf8  __TI_tmpnams                                      
+000031b9  __TI_writemsg                                     
+00002939  __TI_wrt_ok                                       
+00004133  __TI_zero_init                                    
+00002077  __aeabi_atexit                                    
+000031b7  __aeabi_idiv0                                     
+00002daf  __aeabi_memclr                                    
+00002daf  __aeabi_memclr4                                   
+00002daf  __aeabi_memclr8                                   
+000029e5  __aeabi_memcpy                                    
+000029e5  __aeabi_memcpy4                                   
+000029e5  __aeabi_memcpy8                                   
+00002db1  __aeabi_memset                                    
+00002db1  __aeabi_memset4                                   
+00002db1  __aeabi_memset8                                   
+2000446c  __aeabi_stderr                                    
+20004464  __aeabi_stdin                                     
+20004468  __aeabi_stdout                                    
+000039d1  __aeabi_uidiv                                     
+000039d1  __aeabi_uidivmod                                  
+ffffffff  __binit__                                         
+ffffffff  __c_args__                                        
+000020bb  __cxa_atexit                                      
+00002021  __cxa_finalize                                    
+00003db7  __cxa_guard_abort                                 
+00003dab  __cxa_guard_acquire                               
+00003da1  __cxa_guard_release                               
+00002063  __cxa_ia64_exit                                   
+20003e44  __dso_handle                                      
+200044b0  __stack                                           
+00003ea5  _args_main                                        
+00003735  _c_int00                                          
+20004250  _ftable                                           
+2000447c  _lock                                             
+200044ac  _new_handler                                      
+00003fa7  _nop                                              
+00003f9f  _register_lock                                    
+00003f99  _register_unlock                                  
+20003e50  _sys_memory                                       
+000041fb  _system_pre_init                                  
+20004480  _unlock                                           
+00003991  abort                                             
+00001281  add_device                                        
+00002069  atexit                                            
+ffffffff  binit                                             
+00000fed  calloc                                            
+00001231  close                                             
+00003869  copy_in                                           
+00003e73  createBedRoom                                     
+00003e8b  createLivingRoom                                  
+000027c1  demo_get_message                                  
+00002fff  demo_init                                         
+0000413f  describeRoom                                      
+00003999  exit                                              
+00002ae7  fclose                                            
+000025c5  fflush                                            
+0000190b  fopen                                             
+000019b1  fputs                                             
+00000d3b  free                                              
+000018e1  freopen                                           
+00003285  fseek                                             
+00000000  g_pfnVectors                                      
+0000414b  getMotionDetectorValue                            
+00004157  getTempSensorValue                                
+000041b1  isACOn                                            
+000041b7  isHeaterOn                                        
+000041bd  isLightOn                                         
+0000120d  lseek                                             
+000037d1  main                                              
+200044a8  main_func_sp                                      
+00000cd3  malloc                                            
+00000f09  memalign                                          
+00003dc1  memchr                                            
+000029e5  memcpy                                            
+00003d17  memmove                                           
+00002db7  memset                                            
+00000c45  minit                                             
+0000115f  open                                              
+00001c11  printHeader                                       
+00001abd  puts                                              
+00002701  pvPortMalloc                                      
+20004410  pxCurrentTCB                                      
+00003cc9  pxPortInitialiseStack                             
+0000113b  read                                              
+00000dfd  realloc                                           
+000010b1  remove                                            
+00001113  remove_device                                     
+000010d5  rename                                            
+00004171  setMotionDetectorValue                            
+000041c3  setTempSensorValue                                
+000023c9  setvbuf                                           
+00003f1d  strchr                                            
+00003ebd  strcmp                                            
+00003fad  strcpy                                            
+00003fc1  strlen                                            
+00003ba5  strncpy                                           
+000041ff  turnOffAC                                         
+00004203  turnOffHeater                                     
+00004207  turnOffLight                                      
+0000420b  turnOnAC                                          
+0000420f  turnOnHeater                                      
+00004213  turnOnLight                                       
+00004694  ulMaxSyscallInterruptPriority                     
+000024b5  ulPortGetIPSR                                     
+000010b1  unlink                                            
+00003de1  uxListRemove                                      
+00003e3b  vApplicationStackOverflowHook                     
+00003f33  vListInitialise                                   
+000041c9  vListInitialiseItem                               
+00003b3d  vListInsert                                       
+00003ed5  vListInsertEnd                                    
+00002569  vPortEnableVFP                                    
+00003e3d  vPortEnterCritical                                
+00003eed  vPortExitCritical                                 
+00003a51  vPortFree                                         
+0000252d  vPortSVCHandler                                   
+00003fd5  vPortSetupTimerInterrupt                          
+0000254d  vPortStartFirstTask                               
+00003531  vTaskDelay                                        
+00004165  vTaskMissedYield                                  
+000032e9  vTaskPlaceOnEventList                             
+00003f05  vTaskSetTimeOutState                              
+000034d1  vTaskStartScheduler                               
+0000407d  vTaskSuspendAll                                   
+00002ba9  vTaskSwitchContext                                
+00001021  write                                             
+20004440  xControlTaskHandle                                
+000024cd  xPortPendSVHandler                                
+00003a11  xPortStartScheduler                               
+00003bd5  xPortSysTickHandler                               
+000038b5  xQueueCreateMutex                                 
+000021fd  xQueueGenericSend                                 
+00003691  xTaskCheckForTimeOut                              
+00001d19  xTaskGenericCreate                                
+00001e1d  xTaskIncrementTick                                
+00002cb9  xTaskPriorityDisinherit                           
+00002f19  xTaskRemoveFromEventList                          
+000022e5  xTaskResumeAll                                    
+
+
+GLOBAL SYMBOLS: SORTED BY Symbol Address 
+
+address   name                                              
+-------   ----                                              
+00000000  __TI_static_base__                                
+00000000  g_pfnVectors                                      
+00000200  __STACK_SIZE                                      
+00000400  __SYSMEM_SIZE                                     
+00000c45  minit                                             
+00000cd3  malloc                                            
+00000d3b  free                                              
+00000dfd  realloc                                           
+00000f09  memalign                                          
+00000fed  calloc                                            
+00001021  write                                             
+000010b1  remove                                            
+000010b1  unlink                                            
+000010d5  rename                                            
+00001113  remove_device                                     
+0000113b  read                                              
+0000115f  open                                              
+0000120d  lseek                                             
+00001231  close                                             
+00001281  add_device                                        
+0000132d  HOSTwrite                                         
+00001379  HOSTunlink                                        
+000013b1  HOSTtime                                          
+000013eb  HOSTrename                                        
+00001449  HOSTread                                          
+00001495  HOSTopen                                          
+000014e7  HOSTlseek                                         
+00001543  HOSTgetenv                                        
+00001581  HOSTclose                                         
+000015b9  HOSTclock                                         
+00001601  UARTvprintf                                       
+000018b5  __TI_cleanup                                      
+000018e1  freopen                                           
+0000190b  fopen                                             
+000019b1  fputs                                             
+00001abd  puts                                              
+00001ae5  _ZNKSt12_String_base5_XlenEv                      
+00001b37  _ZNKSt12_String_base5_XranEv                      
+00001c11  printHeader                                       
+00001d19  xTaskGenericCreate                                
+00001e1d  xTaskIncrementTick                                
+00001f21  RGBInit                                           
+00002021  __cxa_finalize                                    
+00002063  __cxa_ia64_exit                                   
+00002069  atexit                                            
+00002077  __aeabi_atexit                                    
+000020bb  __cxa_atexit                                      
+00002115  _ZNSs5_GrowEjb                                    
+000021fd  xQueueGenericSend                                 
+000022e5  xTaskResumeAll                                    
+000023c9  setvbuf                                           
+000024b5  ulPortGetIPSR                                     
+000024cd  xPortPendSVHandler                                
+0000252d  vPortSVCHandler                                   
+0000254d  vPortStartFirstTask                               
+00002569  vPortEnableVFP                                    
+00002577  _ZNKSt9exception8_DoraiseEv                       
+00002579  __TI_doflush                                      
+000025c5  fflush                                            
+00002641  RGBEnable                                         
+00002701  pvPortMalloc                                      
+000027c1  demo_get_message                                  
+0000287d  _ZSt21__gen_dummy_typeinfosv                      
+00002885  _ZNSt9type_infoD1Ev                               
+00002885  _ZNSt9type_infoD2Ev                               
+00002887  _ZNSt9type_infoD0Ev                               
+0000288f  _ZNKSt9type_info4nameEv                           
+00002893  _ZNKSt9type_infoneERKS_                           
+000028a9  _ZNKSt9type_infoeqERKS_                           
+000028bf  _ZNKSt9type_info6beforeERKS_                      
+000028cd  _ZN10__cxxabiv129__pointer_to_member_type_infoD1Ev
+000028cd  _ZN10__cxxabiv129__pointer_to_member_type_infoD2Ev
+000028cf  _ZN10__cxxabiv129__pointer_to_member_type_infoD0Ev
+000028d7  _ZN10__cxxabiv123__fundamental_type_infoD1Ev      
+000028d7  _ZN10__cxxabiv123__fundamental_type_infoD2Ev      
+000028d9  _ZN10__cxxabiv123__fundamental_type_infoD0Ev      
+000028e1  _ZN10__cxxabiv121__vmi_class_type_infoD1Ev        
+000028e1  _ZN10__cxxabiv121__vmi_class_type_infoD2Ev        
+000028e3  _ZN10__cxxabiv121__vmi_class_type_infoD0Ev        
+000028eb  _ZN10__cxxabiv120__si_class_type_infoD1Ev         
+000028eb  _ZN10__cxxabiv120__si_class_type_infoD2Ev         
+000028ed  _ZN10__cxxabiv120__si_class_type_infoD0Ev         
+000028f5  _ZN10__cxxabiv120__function_type_infoD1Ev         
+000028f5  _ZN10__cxxabiv120__function_type_infoD2Ev         
+000028f7  _ZN10__cxxabiv120__function_type_infoD0Ev         
+000028ff  _ZN10__cxxabiv119__pointer_type_infoD1Ev          
+000028ff  _ZN10__cxxabiv119__pointer_type_infoD2Ev          
+00002901  _ZN10__cxxabiv119__pointer_type_infoD0Ev          
+00002909  _ZN10__cxxabiv117__pbase_type_infoD1Ev            
+00002909  _ZN10__cxxabiv117__pbase_type_infoD2Ev            
+0000290b  _ZN10__cxxabiv117__pbase_type_infoD0Ev            
+00002913  _ZN10__cxxabiv117__class_type_infoD1Ev            
+00002913  _ZN10__cxxabiv117__class_type_infoD2Ev            
+00002915  _ZN10__cxxabiv117__class_type_infoD0Ev            
+0000291d  _ZN10__cxxabiv117__array_type_infoD1Ev            
+0000291d  _ZN10__cxxabiv117__array_type_infoD2Ev            
+0000291f  _ZN10__cxxabiv117__array_type_infoD0Ev            
+00002927  _ZN10__cxxabiv116__enum_type_infoD1Ev             
+00002927  _ZN10__cxxabiv116__enum_type_infoD2Ev             
+00002929  _ZN10__cxxabiv116__enum_type_infoD0Ev             
+00002939  __TI_wrt_ok                                       
+0000299b  __TI_rd_ok                                        
+000029e5  __aeabi_memcpy                                    
+000029e5  __aeabi_memcpy4                                   
+000029e5  __aeabi_memcpy8                                   
+000029e5  memcpy                                            
+00002a81  __TI_closefile                                    
+00002ae7  fclose                                            
+00002b19  RGBColorSet                                       
+00002ba9  vTaskSwitchContext                                
+00002c35  _ZNK4Room8describeEv                              
+00002cb7  _ZNSt9exceptionD1Ev                               
+00002cb9  xTaskPriorityDisinherit                           
+00002d35  _ZNSs6assignERKSsjj                               
+00002daf  __aeabi_memclr                                    
+00002daf  __aeabi_memclr4                                   
+00002daf  __aeabi_memclr8                                   
+00002db1  __aeabi_memset                                    
+00002db1  __aeabi_memset4                                   
+00002db1  __aeabi_memset8                                   
+00002db7  memset                                            
+00002e29  _ZN4RoomC1Ei                                      
+00002e29  _ZN4RoomC2Ei                                      
+00002ea1  _ZNSsC1EPKc                                       
+00002f19  xTaskRemoveFromEventList                          
+00002fff  demo_init                                         
+00003001  ControlTaskInit                                   
+000030e1  __TI_auto_init                                    
+000031b7  __aeabi_idiv0                                     
+000031b9  __TI_writemsg                                     
+000031e7  C$$IO$$                                           
+000031eb  __TI_readmsg                                      
+00003221  ConfigureUART                                     
+00003285  fseek                                             
+000032e9  vTaskPlaceOnEventList                             
+000033af  _Z21__default_new_handlerv                        
+000033b1  UARTStdioConfig                                   
+00003471  _ZSt14_Debug_messagePKcS0_                        
+000034a1  _ZSt6_ThrowRKSt9exception                         
+000034d1  vTaskStartScheduler                               
+00003531  vTaskDelay                                        
+0000358d  _ZNSs5eraseEjj                                    
+00003691  xTaskCheckForTimeOut                              
+00003735  _c_int00                                          
+00003785  _ZNSt12out_of_rangeC1ERKSs                        
+000037d1  main                                              
+00003869  copy_in                                           
+000038b5  xQueueCreateMutex                                 
+00003901  UARTwrite                                         
+00003949  _ZNSt11logic_errorC2ERKSs                         
+0000398d  C$$EXIT                                           
+00003991  abort                                             
+00003999  exit                                              
+000039d1  __aeabi_uidiv                                     
+000039d1  __aeabi_uidivmod                                  
+00003a11  xPortStartScheduler                               
+00003a51  vPortFree                                         
+00003a8d  _ZNK7BedRoom8describeEv                           
+00003ac9  _ZNK10LivingRoom8describeEv                       
+00003b3d  vListInsert                                       
+00003b75  _Znwj                                             
+00003ba5  strncpy                                           
+00003bd5  xPortSysTickHandler                               
+00003c01  _ZNKSt9exception6_RaiseEv                         
+00003c29  _ZNSt11logic_errorD0Ev                            
+00003c51  _ZNSt12length_errorD0Ev                           
+00003c79  _ZNSt12out_of_rangeD0Ev                           
+00003cc9  pxPortInitialiseStack                             
+00003cf1  _ZN4RoomD1Ev                                      
+00003cf1  _ZN4RoomD2Ev                                      
+00003d17  memmove                                           
+00003d3b  _ZNSt11logic_errorD1Ev                            
+00003d5d  _ZNSt12length_errorD1Ev                           
+00003d7f  _ZNSt12out_of_rangeD1Ev                           
+00003da1  __cxa_guard_release                               
+00003dab  __cxa_guard_acquire                               
+00003db7  __cxa_guard_abort                                 
+00003dc1  memchr                                            
+00003de1  uxListRemove                                      
+00003e01  _ZNSsD1Ev                                         
+00003e3b  vApplicationStackOverflowHook                     
+00003e3d  vPortEnterCritical                                
+00003e59  UARTprintf                                        
+00003e73  createBedRoom                                     
+00003e8b  createLivingRoom                                  
+00003ea5  _args_main                                        
+00003ebd  strcmp                                            
+00003ed5  vListInsertEnd                                    
+00003eed  vPortExitCritical                                 
+00003f05  vTaskSetTimeOutState                              
+00003f1d  strchr                                            
+00003f33  vListInitialise                                   
+00003f49  RGBIntensitySet                                   
+00003f5d  _ZN2ACC1Ei                                        
+00003f5d  _ZN2ACC2Ei                                        
+00003f71  _ZN5LightC1Ei                                     
+00003f71  _ZN5LightC2Ei                                     
+00003f85  _ZN6HeaterC1Ei                                    
+00003f85  _ZN6HeaterC2Ei                                    
+00003f99  _register_unlock                                  
+00003f9f  _register_lock                                    
+00003fa7  _nop                                              
+00003fad  strcpy                                            
+00003fc1  strlen                                            
+00003fd5  vPortSetupTimerInterrupt                          
+00003fe9  _ZNSs4_EosEj                                      
+0000400d  _ZN10LivingRoomC1Ei                               
+0000400d  _ZN10LivingRoomC2Ei                               
+0000401d  _ZN10TempSensorC1Ei                               
+0000401d  _ZN10TempSensorC2Ei                               
+0000402d  _ZN14MotionDetectorC1Ei                           
+0000402d  _ZN14MotionDetectorC2Ei                           
+0000403d  _ZN6DeviceC1Ei                                    
+0000403d  _ZN6DeviceC2Ei                                    
+0000404d  _ZN6SensorC1Ei                                    
+0000404d  _ZN6SensorC2Ei                                    
+0000405d  _ZN7BedRoomC1Ei                                   
+0000405d  _ZN7BedRoomC2Ei                                   
+0000407d  vTaskSuspendAll                                   
+0000408d  _ZN10LivingRoomD0Ev                               
+0000409b  _ZN4Room11turnOnLightEv                           
+000040a9  _ZN4Room12turnOffLightEv                          
+000040b7  _ZN4Room12turnOnHeaterEv                          
+000040c5  _ZN4Room13turnOffHeaterEv                         
+000040d3  _ZN4Room8turnOnACEv                               
+000040e1  _ZN4Room9turnOffACEv                              
+000040ef  _ZN4RoomD0Ev                                      
+000040fd  _ZN7BedRoomD0Ev                                   
+0000410b  _ZNKSt11logic_error4whatEv                        
+00004119  __TI_decompress_none                              
+00004127  _ZNSs6_MyptrEv                                    
+00004133  __TI_zero_init                                    
+0000413f  describeRoom                                      
+0000414b  getMotionDetectorValue                            
+00004157  getTempSensorValue                                
+00004165  vTaskMissedYield                                  
+00004171  setMotionDetectorValue                            
+0000417b  _ZNSt9exceptionD0Ev                               
+0000418b  _ZdlPv                                            
+00004193  ResetISR                                          
+00004199  UARTClockSourceSet                                
+0000419f  _ZN6Device6turnOnEv                               
+000041a5  _ZN6Device7turnOffEv                              
+000041ab  __TI_decompress_rle24                             
+000041b1  isACOn                                            
+000041b7  isHeaterOn                                        
+000041bd  isLightOn                                         
+000041c3  setTempSensorValue                                
+000041c9  vListInitialiseItem                               
+000041cf  _ZN10LivingRoomD1Ev                               
+000041d3  _ZN10TempSensor9readValueEv                       
+000041d7  _ZN14MotionDetector9readValueEv                   
+000041db  _ZN6Sensor8setValueEh                             
+000041df  _ZN6Sensor9readValueEv                            
+000041e3  _ZN7BedRoomD1Ev                                   
+000041e7  _ZNK6Device8getStateEv                            
+000041eb  _ZNKSt11logic_error8_DoraiseEv                    
+000041ef  _ZNKSt12length_error8_DoraiseEv                   
+000041f3  _ZNKSt12out_of_range8_DoraiseEv                   
+000041f7  _ZNKSt9exception4whatEv                           
+000041fb  _system_pre_init                                  
+000041ff  turnOffAC                                         
+00004203  turnOffHeater                                     
+00004207  turnOffLight                                      
+0000420b  turnOnAC                                          
+0000420f  turnOnHeater                                      
+00004213  turnOnLight                                       
+000042b4  _ZTSN10__cxxabiv123__fundamental_type_infoE       
+000042dc  _ZTSN10__cxxabiv120__si_class_type_infoE          
+00004301  _ZTSN10__cxxabiv119__pointer_type_infoE           
+00004325  _ZTSN10__cxxabiv117__class_type_infoE             
+00004347  _ZTSN10__cxxabiv117__pbase_type_infoE             
+00004369  _ZTSe                                             
+00004388  _ZTVSt11logic_error                               
+000043a0  _ZTVSt12length_error                              
+000043b8  _ZTVSt12out_of_range                              
+000043d0  _ZTVSt9exception                                  
+000043e8  _ZTV10LivingRoom                                  
+000043fc  _ZTV4Room                                         
+00004410  _ZTV7BedRoom                                      
+00004436  _ZTS14MotionDetector                              
+00004447  _ZTSSt12length_error                              
+00004458  _ZTSSt12out_of_range                              
+00004469  _ZZN4Demo10getMessageEvEs                         
+0000447c  _ZTIPKe                                           
+0000448c  _ZTSSt11logic_error                               
+0000449c  _ZTV2AC                                           
+000044ac  _ZTV5Light                                        
+000044bc  _ZTV6Device                                       
+000044cc  _ZTV6Heater                                       
+000044dc  _ZTVN10__cxxabiv117__class_type_infoE             
+000044ec  _ZTVN10__cxxabiv119__pointer_type_infoE           
+000044fc  _ZTVN10__cxxabiv120__si_class_type_infoE          
+0000450c  _ZTVN10__cxxabiv123__fundamental_type_infoE       
+0000451c  _ZTS10LivingRoom                                  
+00004529  _ZTS10TempSensor                                  
+00004536  _ZTSSt9exception                                  
+00004543  _ZTSSt9type_info                                  
+00004550  _ZTI10LivingRoom                                  
+0000455c  _ZTI10TempSensor                                  
+00004568  _ZTI14MotionDetector                              
+00004574  _ZTI2AC                                           
+00004580  _ZTI5Light                                        
+0000458c  _ZTI6Heater                                       
+00004598  _ZTI7BedRoom                                      
+000045a4  _ZTIN10__cxxabiv117__class_type_infoE             
+000045b0  _ZTIN10__cxxabiv117__pbase_type_infoE             
+000045bc  _ZTIN10__cxxabiv119__pointer_type_infoE           
+000045c8  _ZTIN10__cxxabiv120__si_class_type_infoE          
+000045d4  _ZTIN10__cxxabiv123__fundamental_type_infoE       
+000045e0  _ZTISt11logic_error                               
+000045ec  _ZTISt12length_error                              
+000045f8  _ZTISt12out_of_range                              
+00004604  _ZTV10TempSensor                                  
+00004610  _ZTV14MotionDetector                              
+0000461c  _ZTV6Sensor                                       
+00004628  _ZTS7BedRoom                                      
+00004634  _ZTI4Room                                         
+0000463c  _ZTI6Device                                       
+00004644  _ZTI6Sensor                                       
+0000464c  _ZTISt9exception                                  
+00004654  _ZTISt9type_info                                  
+0000465c  _ZTIe                                             
+00004664  _ZTS6Device                                       
+0000466c  _ZTS6Heater                                       
+00004674  _ZTS6Sensor                                       
+0000467c  _ZTS5Light                                        
+00004683  _ZTS4Room                                         
+00004689  _ZTS2AC                                           
+0000468d  _ZTSPKe                                           
+00004694  ulMaxSyscallInterruptPriority                     
+0000471c  __TI_Handler_Table_Base                           
+00004728  __TI_Handler_Table_Limit                          
+00004730  __TI_CINIT_Base                                   
+00004740  __TI_CINIT_Limit                                  
+20003bd8  __CIOBUF_                                         
+20003cf8  __TI_tmpnams                                      
+20003e38  LogSemaphore                                      
+20003e3c  UARTSemaphore                                     
+20003e40  _ZSt16__dummy_typeinfo                            
+20003e44  __dso_handle                                      
+20003e50  _sys_memory                                       
+20004250  _ftable                                           
+20004410  pxCurrentTCB                                      
+20004440  xControlTaskHandle                                
+20004460  __TI_ft_end                                       
+20004464  __aeabi_stdin                                     
+20004468  __aeabi_stdout                                    
+2000446c  __aeabi_stderr                                    
+2000447c  _lock                                             
+20004480  _unlock                                           
+20004484  __TI_cleanup_ptr                                  
+20004488  __TI_dtors_ptr                                    
+200044a4  _ZSt14_Raise_handler                              
+200044a8  main_func_sp                                      
+200044ac  _new_handler                                      
+200044b0  __stack                                           
+200046b0  __STACK_END                                       
+200046b0  __STACK_TOP                                       
+ffffffff  __binit__                                         
+ffffffff  __c_args__                                        
+ffffffff  binit                                             
+UNDEFED   SHT$$INIT_ARRAY$$Base                             
+UNDEFED   SHT$$INIT_ARRAY$$Limit                            
+
+[364 symbols]
