@@ -9,7 +9,7 @@ This project is a Home Automation System designed for the TM4C123GXL microcontro
 - **Simulation:** Simulates smart home operations with multiple rooms, each equipped with sensors and devices that are independently controlled.
 
 #### OOP Design
-**`Room` Base Class**
+**`Room` Base class**
 - Represents a room in the home.
 - Derived classes: `LivingRoom`, `BedRoom`.
 **`Sensor` Base Class**
